@@ -16,6 +16,7 @@ extension Market {
         case endDate, closed, active, bestBid, bestAsk, favourite
     }
 
+    /// Writes the flattened shape, not the one the API sends.
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: OutputKeys.self)
         try container.encode(id, forKey: .id)
@@ -40,6 +41,7 @@ extension Event {
         case id, slug, title, description, volume, liquidity, endDate, closed, active, markets
     }
 
+    /// Writes the flattened shape, not the one the API sends.
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: OutputKeys.self)
         try container.encode(id, forKey: .id)

@@ -14,6 +14,7 @@ public enum PolymarketError: Error, LocalizedError, Sendable, Equatable {
     case malformed(String)
     case notFound(String)
 
+    /// A one-line reason, for a CLI or a log.
     public var errorDescription: String? {
         switch self {
         case .http(let code): return "Polymarket answered HTTP \(code)"

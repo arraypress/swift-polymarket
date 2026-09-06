@@ -23,7 +23,9 @@ public struct Polymarket: Sendable {
     /// How requests are performed — injectable so tests run on recordings.
     public typealias Transport = @Sendable (URLRequest) async throws -> (Data, HTTPURLResponse)
 
+    /// Sent on every request, so the service can see who is calling.
     public static let defaultUserAgent = "swift-polymarket/0.1 (+https://github.com/arraypress/swift-polymarket)"
+    /// The API host. Overridable so tests can point somewhere else.
     public static let defaultHost = "gamma-api.polymarket.com"
 
     /// How results are ordered.
@@ -38,6 +40,7 @@ public struct Polymarket: Sendable {
         case startDate
     }
 
+    /// Sent on every request made by this client.
     public let userAgent: String
     private let host: String
     private let transport: Transport
